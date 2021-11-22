@@ -87,8 +87,9 @@ class ProductController extends Controller
                 $model->image = $image;
                 $model->save();
 
-                $model->uploadImage();
-                $model->image = time() .'_'.$image->baseName . '.' . $image->extension;
+                $timestamp = time();
+                $model->uploadImage($timestamp);
+                $model->image = $timestamp .'_'.$image->baseName . '.' . $image->extension;
             } else {
                 $model->image = '';
             }
